@@ -6,7 +6,8 @@ A simple paging script written in Go, for use with template engines like mustach
 Usage
 ======
 The Paging(current_page, page_count, visible int, url_str string)  function will return a []paging.Pelem.
-The visible parameter controls how many
+The visible parameter controls how many paging "link" can be seen before and after the current page.
+The first and the last page will be always in the list.
 ```
 package main
 
