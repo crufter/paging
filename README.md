@@ -16,7 +16,7 @@ import(
 )
 
 func main() {
-	x, _ := paging.Paging(1, 5, 2, "http://www.opesun.com?cat=embedded")
+	x, _ := paging.P(1, 5, 2, "http://www.opesun.com?cat=embedded")
 	paging.Print(x)
 	fmt.Println("---")
 	paging.PrintWithUrl(x)

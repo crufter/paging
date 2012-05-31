@@ -73,7 +73,7 @@ func handleUrls(p []Pelem, url_str string) ([]Pelem, bool) {
 	return p, false
 }
 
-func Paging(current, all, visible int, url_str string) ([]Pelem, bool) {
+func P(current, all, visible int, url_str string) ([]Pelem, bool) {
 	ret, ok := handleNumbers(current, all, visible)
 	if ok {
 		return handleUrls(ret, url_str)
