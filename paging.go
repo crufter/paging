@@ -6,20 +6,21 @@
 // Print(x)
 // PrintWithUrl(x)
 package paging
+
 import (
 	"fmt"
 	"net/url"
-	"strings"
 	"strconv"
+	"strings"
 )
 
 type Pelem struct {
-	IsDot		bool
-	Url 		string
-	Page		int
-	IsCurrent	bool
-	IsFirst		bool
-	IsLast		bool
+	IsDot     bool
+	Url       string
+	Page      int
+	IsCurrent bool
+	IsFirst   bool
+	IsLast    bool
 }
 
 func handleNumbers(current, all, visible int) ([]Pelem, bool) {
@@ -33,18 +34,18 @@ func handleNumbers(current, all, visible int) ([]Pelem, bool) {
 			ret = append(ret, Pelem{IsDot: true})
 		}
 	}
-	for i:=current-visible; i<current; i++ {
-		if i>0 {
+	for i := current - visible; i < current; i++ {
+		if i > 0 {
 			ret = append(ret, Pelem{Page: i})
 		}
 	}
-	ret = append(ret, Pelem{IsCurrent: true, Page:current})
-	for i:=current+1; i<=all && (i-current)<=visible; i++ {
+	ret = append(ret, Pelem{IsCurrent: true, Page: current})
+	for i := current + 1; i <= all && (i-current) <= visible; i++ {
 		ret = append(ret, Pelem{Page: i})
 	}
-	if current+visible<all {
-		if current+visible<all-1 {
-			ret = append(ret, Pelem{IsDot:true})
+	if current+visible < all {
+		if current+visible < all-1 {
+			ret = append(ret, Pelem{IsDot: true})
 		}
 		ret = append(ret, Pelem{Page: all})
 	}
@@ -106,5 +107,5 @@ func PrintWithUrl(pages []Pelem) {
 				fmt.Println(k.Page, " ", k.Url)
 			}
 		}
-	}	
+	}
 }
