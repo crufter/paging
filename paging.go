@@ -63,7 +63,6 @@ func handleUrls(p []Pelem, url_str string) ([]Pelem, bool) {
 			}
 			v.Set("page", strconv.Itoa(p[i].Page))
 			if len(urlp) > 1 {
-				fmt.Println(v.Encode())
 				p[i].Url = urlp[0] + "?" + v.Encode()
 			} else {
 				p[i].Url = v.Encode()
